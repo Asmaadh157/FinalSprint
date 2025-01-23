@@ -1,0 +1,292 @@
+Index: app/src/main/java/com/example/gestiondesproject/Taches.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/gestiondesproject/Taches.kt b/app/src/main/java/com/example/gestiondesproject/Taches.kt
+--- a/app/src/main/java/com/example/gestiondesproject/Taches.kt	
++++ b/app/src/main/java/com/example/gestiondesproject/Taches.kt	(date 1735838095262)
+@@ -5,14 +5,15 @@
+ import android.content.Intent
+ import android.net.Uri
+ import android.os.Bundle
+-import android.util.Log
+ import android.view.LayoutInflater
+ import android.view.View
+ import android.widget.*
+ import androidx.appcompat.app.AppCompatActivity
+-import com.google.firebase.auth.FirebaseAuth
+-import com.google.firebase.database.FirebaseDatabase
+ import com.google.firebase.database.DatabaseReference
++import com.google.firebase.database.FirebaseDatabase
++import com.google.firebase.storage.FirebaseStorage
++import com.google.firebase.storage.StorageReference
++import com.google.firebase.auth.FirebaseAuth
+ 
+ class Taches : AppCompatActivity() {
+ 
+@@ -23,8 +24,12 @@
+     private lateinit var uploadFileButton: Button
+     private lateinit var taskList: LinearLayout
+     private var selectedFileUri: Uri? = null
++
++    // Firebase
+     private lateinit var firebaseAuth: FirebaseAuth
+-    private lateinit var tasksDatabase: DatabaseReference
++    private lateinit var database: FirebaseDatabase
++    private lateinit var storage: FirebaseStorage
++    private lateinit var tasksRef: DatabaseReference
+ 
+     companion object {
+         const val FILE_REQUEST_CODE = 100
+@@ -34,7 +39,13 @@
+         super.onCreate(savedInstanceState)
+         setContentView(R.layout.taches)
+ 
+-        // Initialize views
++        // Initialisation de Firebase
++        firebaseAuth = FirebaseAuth.getInstance()
++        database = FirebaseDatabase.getInstance()
++        storage = FirebaseStorage.getInstance()
++        tasksRef = database.reference.child("tasks")
++
++        // Initialisation des vues
+         addTaskButton = findViewById(R.id.addTaskButton)
+         addTaskLayout = findViewById(R.id.addTaskLayout)
+         taskNameInput = findViewById(R.id.taskNameInput)
+@@ -42,91 +53,184 @@
+         uploadFileButton = findViewById(R.id.uploadFileButton)
+         taskList = findViewById(R.id.taskList)
+ 
+-        firebaseAuth = FirebaseAuth.getInstance()
+-        tasksDatabase = FirebaseDatabase.getInstance().getReference("Tasks")
+-
+-        // Show add task layout
++        // Affichage de la vue pour ajouter une tâche
+         addTaskButton.setOnClickListener {
+             addTaskLayout.visibility = View.VISIBLE
+         }
+ 
+-        // Handle file upload
++        // Gérer le téléchargement de fichier
+         uploadFileButton.setOnClickListener {
+             val intent = Intent(Intent.ACTION_GET_CONTENT)
+-            intent.type = "*/*" // Allows all file types
++            intent.type = "*/*" // Permet tous les types de fichiers
+             val mimeTypes = arrayOf("application/msword", "application/vnd.ms-excel", "application/vnd.ms-powerpoint", "application/pdf", "image/*")
+             intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
+             startActivityForResult(intent, FILE_REQUEST_CODE)
+         }
+ 
+-        // Add task
++        // Ajouter une tâche
+         confirmTaskButton.setOnClickListener {
+             val taskName = taskNameInput.text.toString()
+             if (taskName.isNotEmpty()) {
+                 addTask(taskName, selectedFileUri)
+                 addTaskLayout.visibility = View.GONE
+                 taskNameInput.text.clear()
+-                selectedFileUri = null // Reset the file selection
++                selectedFileUri = null // Réinitialiser la sélection de fichier
+             } else {
+-                Toast.makeText(this, "Enter a task name", Toast.LENGTH_SHORT).show()
++                Toast.makeText(this, "Entrez un nom de tâche", Toast.LENGTH_SHORT).show()
+             }
+         }
+-
+-        // Fetch existing tasks from Firebase
+-        fetchTasksFromFirebase()
+     }
+ 
+     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+         super.onActivityResult(requestCode, resultCode, data)
+         if (requestCode == FILE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+             selectedFileUri = data?.data
+-            Toast.makeText(this, "File selected: ${selectedFileUri?.lastPathSegment}", Toast.LENGTH_SHORT).show()
++            Toast.makeText(this, "Fichier sélectionné: ${selectedFileUri?.lastPathSegment}", Toast.LENGTH_SHORT).show()
+         }
+     }
+ 
++    // Fonction pour ajouter une tâche
+     private fun addTask(taskName: String, fileUri: Uri?) {
+-        val taskId = tasksDatabase.push().key ?: return
+-        val taskInfo = mapOf(
+-            "taskName" to taskName,
+-            "fileUri" to fileUri.toString(),
+-            "status" to "pending"
+-        )
+-
+-        tasksDatabase.child(taskId).setValue(taskInfo).addOnCompleteListener { task ->
+-            if (task.isSuccessful) {
+-                Toast.makeText(this, "Task added successfully", Toast.LENGTH_SHORT).show()
+-                fetchTasksFromFirebase()
+-            } else {
+-                Toast.makeText(this, "Failed to add task: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+-                Log.e("Firebase", "Error: ${task.exception?.message}")
+-            }
+-        }
+-    }
+-
+-    private fun fetchTasksFromFirebase() {
+-        tasksDatabase.addValueEventListener(object : com.google.firebase.database.ValueEventListener {
+-            override fun onDataChange(snapshot: com.google.firebase.database.DataSnapshot) {
+-                taskList.removeAllViews()
+-                snapshot.children.forEach { taskSnapshot ->
+-                    val taskName = taskSnapshot.child("taskName").getValue(String::class.java) ?: ""
+-                    val fileUri = taskSnapshot.child("fileUri").getValue(String::class.java) ?: ""
+-                    val taskView = layoutInflater.inflate(R.layout.task_item, taskList, false)
++        val taskView = layoutInflater.inflate(R.layout.task_item, taskList, false)
+ 
+-                    val taskNameTextView = taskView.findViewById<TextView>(R.id.taskName)
+-                    val fileNameTextView = taskView.findViewById<TextView>(R.id.fileName)
+-                    val statusCircle = taskView.findViewById<ImageView>(R.id.statusCircle)
++        val taskNameTextView = taskView.findViewById<TextView>(R.id.taskName)
++        val fileNameTextView = taskView.findViewById<TextView>(R.id.fileName)
++        val statusCircle = taskView.findViewById<ImageView>(R.id.statusCircle)
+ 
+-                    taskNameTextView.text = taskName
+-                    fileNameTextView.text = if (fileUri.isNotEmpty()) "Attached: $fileUri" else "No file attached"
+-                    statusCircle.setImageResource(R.drawable.circle_empty)
++        taskNameTextView.text = taskName
++
++        // Afficher le nom du fichier si un fichier est téléchargé
++        if (fileUri != null) {
++            uploadFileToFirebase(fileUri)
++        }
++
++        // Gérer un clic long pour afficher le menu d'actions de la tâche
++        taskView.setOnLongClickListener {
++            showTaskMenu(taskView, taskNameTextView, fileNameTextView, statusCircle)
++            true
++        }
++
++        // Gérer le clic sur le cercle de statut pour l'évaluation de la tâche
++        statusCircle.setOnClickListener {
++            showEvaluationMenu(statusCircle)
++        }
++
++        // Ouvrir le fichier si l'utilisateur clique dessus
++        fileNameTextView.setOnClickListener {
++            openFile(fileUri)
++        }
+ 
+-                    taskList.addView(taskView)
+-                }
++        taskList.addView(taskView)
++
++        // Sauvegarder la tâche dans la base de données Firebase
++        val taskId = tasksRef.push().key ?: return
++        val taskData = mapOf(
++            "taskName" to taskName,
++            "fileUri" to fileUri?.toString() ?: "Pas de fichier",
++            "status" to "En attente"
++        )
++
++        tasksRef.child(taskId).setValue(taskData)
++            .addOnSuccessListener {
++                Toast.makeText(this, "Tâche ajoutée avec succès", Toast.LENGTH_SHORT).show()
++            }
++            .addOnFailureListener { e ->
++                Toast.makeText(this, "Échec de l'ajout de la tâche: ${e.message}", Toast.LENGTH_SHORT).show()
+             }
++    }
+ 
+-            override fun onCancelled(error: com.google.firebase.database.DatabaseError) {
+-                Toast.makeText(this@Taches, "Failed to load tasks", Toast.LENGTH_SHORT).show()
+-            }
+-        })
++    // Téléchargement du fichier sur Firebase Storage
++    private fun uploadFileToFirebase(fileUri: Uri) {
++        val fileName = fileUri.lastPathSegment ?: "file"
++        val fileReference = storage.reference.child("task_files").child(fileName)
++
++        fileReference.putFile(fileUri)
++            .addOnSuccessListener {
++                fileReference.downloadUrl.addOnSuccessListener { uri ->
++                    Toast.makeText(this, "Fichier téléchargé: ${uri.toString()}", Toast.LENGTH_SHORT).show()
++                    // Utilisez cette URL pour stocker dans la base de données
++                }
++            }
++            .addOnFailureListener { e ->
++                Toast.makeText(this, "Échec du téléchargement du fichier: ${e.message}", Toast.LENGTH_SHORT).show()
++            }
++    }
++
++    // Afficher le menu pour la modification et la suppression de la tâche
++    private fun showTaskMenu(taskView: View, taskNameTextView: TextView, fileNameTextView: TextView, statusCircle: ImageView) {
++        val popupMenu = PopupMenu(this, taskView)
++        popupMenu.menu.add("Modifier")
++        popupMenu.menu.add("Supprimer")
++
++        popupMenu.setOnMenuItemClickListener { menuItem ->
++            when (menuItem.title) {
++                "Modifier" -> showModifyDialog(taskView, taskNameTextView, fileNameTextView)
++                "Supprimer" -> taskList.removeView(taskView)
++            }
++            true
++        }
++
++        popupMenu.show()
++    }
++
++    // Afficher la fenêtre de modification de tâche
++    private fun showModifyDialog(taskView: View, taskNameTextView: TextView, fileNameTextView: TextView) {
++        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_modify_task, null)
++        val dialogTaskNameInput = dialogView.findViewById<EditText>(R.id.taskNameInput)
++        val dialogUploadFileButton = dialogView.findViewById<Button>(R.id.uploadFileButton)
++
++        dialogTaskNameInput.setText(taskNameTextView.text)
++
++        dialogUploadFileButton.setOnClickListener {
++            val intent = Intent(Intent.ACTION_GET_CONTENT)
++            intent.type = "*/*"
++            val mimeTypes = arrayOf("application/msword", "application/vnd.ms-excel", "application/vnd.ms-powerpoint", "application/pdf", "image/*")
++            intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
++            startActivityForResult(intent, FILE_REQUEST_CODE)
++        }
++
++        AlertDialog.Builder(this)
++            .setTitle("Modifier la tâche")
++            .setView(dialogView)
++            .setPositiveButton("Sauvegarder") { _, _ ->
++                val updatedTaskName = dialogTaskNameInput.text.toString()
++                if (updatedTaskName.isNotEmpty()) {
++                    taskNameTextView.text = updatedTaskName
++                } else {
++                    Toast.makeText(this, "Le nom de la tâche ne peut pas être vide", Toast.LENGTH_SHORT).show()
++                }
++            }
++            .setNegativeButton("Annuler", null)
++            .show()
++    }
++
++    // Afficher le menu pour l'évaluation de la tâche (Accepter, Rejeter, Modifier)
++    private fun showEvaluationMenu(statusCircle: ImageView) {
++        val evaluationMenu = PopupMenu(this, statusCircle)
++        evaluationMenu.menu.add("Accepter")
++        evaluationMenu.menu.add("Rejeter")
++        evaluationMenu.menu.add("Modifier")
++
++        evaluationMenu.setOnMenuItemClickListener { menuItem ->
++            when (menuItem.title) {
++                "Accepter" -> statusCircle.setImageResource(R.drawable.circle_accepted) // Circulaire accepté
++                "Rejeter" -> statusCircle.setImageResource(R.drawable.circle_rejected) // Circulaire rejeté
++                "Modifier" -> statusCircle.setImageResource(R.drawable.circle_modified) // Circulaire modifié
++            }
++            true
++        }
++
++        evaluationMenu.show()
++    }
++
++    // Ouvrir le fichier si l'utilisateur clique dessus
++    private fun openFile(fileUri: Uri?) {
++        fileUri?.let {
++            val intent = Intent(Intent.ACTION_VIEW, it)
++            intent.flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
++            startActivity(intent)
++        } ?: run {
++            Toast.makeText(this, "Aucun fichier attaché", Toast.LENGTH_SHORT).show()
++        }
+     }
+ }

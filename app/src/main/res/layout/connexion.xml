@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_color"
+    tools:context=".Inscrire">
+
+    <!-- ScrollView contenant tout le contenu -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp">
+
+        <!-- Conteneur principal -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Texte Bienvenu -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="70dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/ariel_ce"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Bienvenu"
+                android:textColor="@color/white"
+                android:textSize="40sp" />
+
+            <!-- Conteneur de formulaire -->
+            <LinearLayout
+                android:id="@+id/form_container"
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/round_border"
+                android:orientation="vertical"
+                android:padding="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+
+
+                tools:ignore="NotSibling">
+
+                <!-- Champ Email -->
+                <EditText
+                    android:id="@+id/editTextText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/input_bg"
+                    android:drawableLeft="@drawable/baseline_email_24"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/app_color"
+                    android:fontFamily="@font/helvetica"
+                    android:hint="E-mail"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:padding="10dp" />
+
+                <!-- Champ Mot de passe -->
+                <!-- Champ Mot de passe -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <EditText
+                        android:id="@+id/editTextText5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawableStart="@drawable/baseline_password_24"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@color/app_color"
+                        android:fontFamily="@font/helvetica"
+                        android:hint="Mot de passe"
+                        android:inputType="textPassword"
+                        android:minHeight="48dp"
+                        android:padding="10dp"
+                        android:background="@drawable/input_bg"/>
+
+                    <ImageButton
+                        android:id="@+id/togglePasswordVisibility"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:onClick="togglePasswordVisibility"
+                        android:src="@drawable/baseline_visibility_off_24"
+                        android:layout_gravity="end|center_vertical"
+                        android:padding="10dp"
+                        app:tint="@color/app_color" />
+                </FrameLayout>
+
+
+
+                <!-- Texte "Mot de passe oublié ?" -->
+                <TextView
+                    android:id="@+id/forgotPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="200dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/helvetica"
+                    android:text="Mot de passe oublié?"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+                <!-- Bouton Se connecter -->
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="190dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto_regular"
+                    android:minHeight="48dp"
+                    android:padding="5dp"
+                    android:text="Se connecter"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:backgroundTint="@color/button_color"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <!-- Section Inscription -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/helvetica"
+                        android:text="Vous n'avez pas de compte ? "
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/textViewSignUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/helvetica"
+                        android:text="S'inscrire"
+                        android:textColor="@color/button_color" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

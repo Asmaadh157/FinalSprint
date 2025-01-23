@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <!-- Style for the Spinner (Prompt) text (Helvetica font) -->
+        <style name="SpinnerPromptStyle">
+            <item name="android:fontFamily">@font/helvetica</item>
+        </style>
+
+        <!-- Style for Spinner items (Selected status: Arial font) -->
+        <style name="SpinnerItemStyle">
+            <item name="android:fontFamily">@font/helvetica</item>
+        </style>
+    <style name="CustomMenuItemStyle" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item> <!-- Assurez-vous d'avoir la police Roboto dans `res/font/` -->
+    </style>
+    <style name="CustomMenuDrawerItemStyle" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+    <style name="CustomToolbarStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="titleTextAppearance">@style/CustomToolbarTitleText</item>
+    </style>
+
+    <style name="CustomToolbarTitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">20sp</item> <!-- Augmentez la taille du texte ici -->
+        <item name="android:textColor">@android:color/white</item> <!-- Couleur facultative -->
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+    <style name="DialogTextStyle" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">#000000</item> <!-- Couleur du texte si nécessaire -->
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="CustomSpinnerItemStyle">
+        <!-- Définir la couleur et la taille du texte -->
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item> <!-- Police -->
+        <item name="android:layout_margin">8dp</item> <!-- Marge des éléments -->
+    </style>
+    <style name="CustomSpinnerDropdownStyle">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:popupBackground">@android:color/darker_gray</item>
+    </style>
+
+
+
+
+</resources>

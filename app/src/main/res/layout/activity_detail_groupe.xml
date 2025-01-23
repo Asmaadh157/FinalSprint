@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/white"
+    tools:context=".DetailDeGroupeActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/BackButton1"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:contentDescription="Retour"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/app_color"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Détail de Group"
+            android:textColor="@color/app_color"
+            android:textSize="30sp"
+            app:layout_constraintTop_toBottomOf="@id/BackButton1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tvNomGroupe1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Nom du Groupe   :"
+            android:textSize="14sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="50dp"
+            android:padding="16dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/border_background"
+            app:layout_constraintTop_toBottomOf="@id/textView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvNomGroupe" />
+
+        <EditText
+            android:id="@+id/tvNomGroupe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:padding="16dp"
+            android:textSize="14dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/border_background"
+            app:layout_constraintTop_toTopOf="@id/tvNomGroupe1"
+            app:layout_constraintStart_toEndOf="@id/tvNomGroupe1"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvNomProjet1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Nom du Projet      :"
+            android:textSize="14sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/border_background"
+            app:layout_constraintTop_toBottomOf="@id/tvNomGroupe1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvNomProjet" />
+
+        <EditText
+            android:id="@+id/tvNomProjet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:padding="16dp"
+            android:textSize="14dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/border_background"
+            app:layout_constraintTop_toTopOf="@id/tvNomProjet1"
+            app:layout_constraintStart_toEndOf="@id/tvNomProjet1"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDateDebut1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Date de début        :"
+            android:textSize="14sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/border_background"
+            app:layout_constraintTop_toBottomOf="@id/tvNomProjet1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvDateDebut" />
+
+        <EditText
+            android:id="@+id/tvDateDebut"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:padding="16dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/border_background"
+            app:layout_constraintTop_toTopOf="@id/tvDateDebut1"
+            app:layout_constraintStart_toEndOf="@id/tvDateDebut1"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="14dp"/>
+
+        <TextView
+            android:id="@+id/tvDateFin1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Date de fin           :"
+            android:textSize="14sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:padding="17dp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto_regular"
+            android:background="@drawable/border_background"
+            app:layout_constraintTop_toBottomOf="@id/tvDateDebut1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvDateFin" />
+
+        <EditText
+            android:id="@+id/tvDateFin"
+            android:layout_width="0dp"
+            android:textSize="14dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:padding="16dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/border_background"
+            app:layout_constraintTop_toTopOf="@id/tvDateFin1"
+            app:layout_constraintStart_toEndOf="@id/tvDateFin1"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMembres1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Membres du groupe :"
+            android:textSize="12sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/border_background"
+            app:layout_constraintTop_toBottomOf="@id/tvDateFin1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvMembres" />
+
+        <EditText
+            android:id="@+id/tvMembres"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:padding="16dp"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/border_background"
+            app:layout_constraintTop_toTopOf="@id/tvMembres1"
+            app:layout_constraintStart_toEndOf="@id/tvMembres1"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="14dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

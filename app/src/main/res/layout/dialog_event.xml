@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/eventNameEditText"
+        android:hint="Nom de l'événement"
+        android:background="@drawable/input_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:fontFamily="@font/roboto_regular"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Spinner
+        android:id="@+id/colorSpinner"
+        android:spinnerMode="dropdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/input_bg"
+        android:drawableEnd="@drawable/baseline_account_circle_24"
+        android:entries="@array/status_options"
+        android:fontFamily="@font/helvetica"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        android:popupBackground="@color/white"
+        android:theme="@style/SpinnerPromptStyle"/>  <!-- Apply the item style -->/>/>
+
+    <Button
+        android:id="@+id/confirmButton"
+        android:text="Confirmer"
+        android:layout_width="190dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_regular"
+        android:minHeight="48dp"
+        android:padding="5dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:backgroundTint="@color/button_color"
+        tools:ignore="TouchTargetSizeCheck"/>
+</LinearLayout>

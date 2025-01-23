@@ -1,0 +1,37 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Home"
+        />
+    <item
+        android:id="@+id/nav_discussion"
+        android:icon="@drawable/baseline_message_24"
+        android:title="Discussion"
+        />
+    <item
+        android:id="@+id/nav_taches"
+        android:icon="@drawable/baseline_format_list_bulleted_24"
+        android:title="Tâches"/>
+    <item
+        android:id="@+id/nav_avancement"
+        android:icon="@drawable/sharp_auto_graph_24"
+        android:title="État d'avancement" />
+    <item
+        android:id="@+id/nav_detail_groupe"
+        android:icon="@drawable/baseline_info_outline_24"
+        android:title="Détail de groupe"
+        />
+    <item
+        android:id="@+id/nav_calendrie"
+        android:icon="@drawable/baseline_calendar_month_24"
+        android:title="Calendrie"
+        />
+    <item
+        android:id="@+id/nav_deconnexion"
+        android:icon="@drawable/baseline_logout_24"
+        android:title="Deconnexion"
+        />
+
+</menu>

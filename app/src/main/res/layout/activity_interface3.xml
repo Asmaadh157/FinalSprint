@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:scrollbars="vertical">
+
+    <!-- Titre de l'interface -->
+    <TextView
+        android:id="@+id/textViewTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Détails du Groupe"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Nom du groupe -->
+    <TextView
+        android:id="@+id/textViewNomGroupe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nom du groupe :"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Nom du projet -->
+    <TextView
+        android:id="@+id/textViewNomProjet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nom du projet :"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Date de début -->
+    <TextView
+        android:id="@+id/textViewDateDebut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date de début :"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Date de fin -->
+    <TextView
+        android:id="@+id/textViewDateFin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date de fin :"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Bouton de retour -->
+    <Button
+        android:id="@+id/buttonRetour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retour"
+        android:textSize="18sp"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

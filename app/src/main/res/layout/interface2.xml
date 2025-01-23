@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="16dp">
+
+    <!-- Section Titre -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="38dp"
+            android:src="@drawable/baseline_home_24"
+            app:tint="@color/app_color"
+            android:contentDescription="Créer un groupe"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:id="@+id/tvAccueil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dashboard"
+            android:textColor="@color/app_color"
+            android:textSize="30sp"
+            android:fontFamily="@font/roboto_regular"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+
+    <!-- Section GridLayout -->
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        app:columnCount="2"
+        app:orientation="horizontal"
+        app:rowCount="3">
+
+        <!-- Élément Créer un Groupe -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnCreerGroupe"
+            android:layout_width="1dp"
+            android:layout_height="150dp"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:layout_columnWeight="1"
+            android:backgroundTint="@color/app_color">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:layout_marginTop="18dp"
+                    tools:ignore="UseCompoundDrawables">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        app:tint="@color/button_color"
+                        android:src="@drawable/baseline_group_add_24"
+                        android:contentDescription="Créer un groupe" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Créer un groupe"
+                        android:textSize="12sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/roboto_regular"
+                        android:layout_marginTop="8dp"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Élément Mes Groupes -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnMesGroupes"
+            android:layout_width="5dp"
+            android:layout_height="150dp"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:layout_columnWeight="1"
+            android:backgroundTint="@color/app_color">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="16dp"
+                android:layout_marginTop="18dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/baseline_group_24"
+                    app:tint="@color/button_color"
+                    android:contentDescription="Mes groupes" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mes groupes"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/roboto_regular"
+                    android:layout_marginTop="8dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Élément Calendrier -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnCalendrier"
+            android:layout_width="5dp"
+            android:layout_height="150dp"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:layout_columnWeight="1"
+            android:backgroundTint="@color/app_color">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="16dp"
+                android:layout_marginTop="18dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/baseline_calendar_month_24"
+                    app:tint="@color/button_color"
+                    android:contentDescription="Calendrier" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calendrier"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/roboto_regular"
+                    android:layout_marginTop="8dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Élément Déconnexion -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnDeconnexion"
+            android:layout_width="5dp"
+            android:layout_height="150dp"
+            android:layout_margin="20dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:layout_columnWeight="1"
+            android:backgroundTint="@color/app_color">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="16dp"
+                android:layout_marginTop="18dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/baseline_logout_24"
+                    app:tint="@color/button_color"
+                    android:contentDescription="Déconnexion" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Déconnexion"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/roboto_regular"
+                    android:layout_marginTop="8dp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.gridlayout.widget.GridLayout>
+</LinearLayout>

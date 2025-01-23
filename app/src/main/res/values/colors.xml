@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="app_color">#2C7873</color>
+    <color name="button_color">#F9B34C</color>
+    <color name="icon_color">#9E9E9E</color>
+    <color name="groupe_color_1">#FF6F61</color> <!-- Orange -->
+    <color name="groupe_color_2">#6B5B95</color> <!-- Green -->
+    <color name="groupe_color_3">#88B04B</color> <!-- Blue -->
+    <color name="groupe_color_4">#6B8E23</color> <!-- Pink -->
+    <color name="groupe_color_5">#F4A300</color> <!-- Yellow -->
+    <color name="groupe_color_6"> #FF0000</color>
+    <color name="groupe_color_7"> #87CEEB</color>
+    <color name="groupe_color_8"> #228B22</color>
+    <color name="groupe_color_9"> #FFD700</color>
+    <color name="groupe_color_10"> #2F4F4F</color>
+
+
+
+    <color name="green">#4CAF50</color> <!-- Vert -->
+    <color name="red">#F44336</color> <!-- Rouge -->
+    <color name="orange">#FF9800</color> <!-- Orange -->
+    <color name="gray">#B0BEC5</color> <!-- Gris initial -->
+    <color name="color_no_tasks">#B0B0B0</color> <!-- Couleur grise personnalisée -->
+
+
+
+</resources>

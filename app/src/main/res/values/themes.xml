@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.InterfaceDeSinscrire" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Rendre la barre de statut complètement transparente -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
+        <!-- Facultatif : Si vous voulez que les icônes de la barre de statut apparaissent en blanc ou visibles -->
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="colorPrimary">@color/app_color</item> <!-- Couleur principale de la barre d'outils -->
+        <item name="colorPrimaryDark">@color/button_color</item> <!-- Couleur sombre de la barre d'outils -->
+        <item name="android:textColorPrimary">@android:color/black</item>
+
+    </style>
+    <style name="Theme.MyApp" parent="Base.Theme.InterfaceDeSinscrire">
+        <item name="android:itemTextAppearance">@style/CustomMenuItemStyle</item><!-- Appliquer le style au texte du menu -->
+    </style>
+
+
+
+</resources>

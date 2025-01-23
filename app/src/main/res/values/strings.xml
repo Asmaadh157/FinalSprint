@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">gestion des project</string>
+    <string name="inscrire">inscrire</string>
+    <string name="nom">Nom</string>
+    <string name="prenom">Prénom</string><!-- Déplacement ici pour ne pas être en dehors de <resources> -->
+    <string name="spinner_title">Status</string>
+    <string name="Nom">Nom</string>
+    <string name="pr_nom">Prénom</string>
+    <string name="s_inscrire">s\'inscrire</string>
+
+    <!-- Prompt text for Spinner -->
+    <string name="status_prompt">Status</string>
+
+    <string-array name="status_options">
+        <item>Sélectionnez votre statut</item>  <!-- This is the default option shown initially -->
+        <item>Étudiant</item>
+        <item>Professeur</item>
+    </string-array>
+    <string-array name="menu_group">
+        <item>Sélectionnez un groupe</item>  <!-- This is the default option shown initially -->
+    </string-array>
+
+    <string name="navigation_drawer_open">Ouvrir le menu</string>
+    <string name="navigation_drawer_close">Fermer le menu</string>
+
+</resources>

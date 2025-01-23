@@ -1,0 +1,64 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@drawable/round_border">
+
+    <!-- Zone de texte pour entrer le titre de la tâche -->
+    <EditText
+        android:id="@+id/editTextTaskTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Titre de la tâche"
+        android:inputType="text"
+        android:background="@drawable/input_bg"
+        android:fontFamily="@font/helvetica"
+        android:padding="10dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Ligne contenant le bouton Image et le texte du fichier sélectionné -->
+    <ImageButton
+        android:id="@+id/imageButtonChooseFile"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@null"
+        android:src="@drawable/baseline_attach_file_24"
+        android:contentDescription="Choisir un fichier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextTaskTitle"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/textViewSelectedFile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Aucun fichier sélectionné"
+        android:textStyle="italic"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintStart_toEndOf="@id/imageButtonChooseFile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextTaskTitle" />
+
+    <!-- Bouton pour ajouter la tâche -->
+    <Button
+        android:id="@+id/buttonAddTask"
+        android:layout_width="190dp"
+        android:layout_height="55dp"
+        android:text="Ajouter la tâche"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:backgroundTint="@color/button_color"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewSelectedFile" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_color"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Retour Button -->
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:contentDescription="Retour"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white"
+            android:scaleType="fitCenter" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:fontFamily="@font/ariel_ce"
+            android:text="Inscrire"
+            android:textColor="@color/white"
+            android:textSize="50sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/backButton" />
+
+        <!-- Form Container -->
+        <LinearLayout
+            android:id="@+id/form_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="96dp"
+            android:background="@drawable/round_border"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView"
+            app:layout_constraintVertical_bias="1.0">
+
+            <!-- Name Field -->
+            <EditText
+                android:id="@+id/editTextText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/input_bg"
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/app_color"
+                android:fontFamily="@font/helvetica"
+                android:hint="Nom"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp" />
+
+            <!-- Prenom Field -->
+            <EditText
+                android:id="@+id/editTextText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/input_bg"
+                android:drawableLeft="@drawable/baseline_person_24"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/app_color"
+                android:fontFamily="@font/helvetica"
+                android:hint="Prénom"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp" />
+
+            <!-- E-mail Field -->
+            <EditText
+                android:id="@+id/editTextText3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/input_bg"
+                android:drawableLeft="@drawable/baseline_email_24"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/app_color"
+                android:fontFamily="@font/helvetica"
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:padding="10dp" />
+
+            <!-- Status Field -->
+            <Spinner
+                android:id="@+id/spinnerStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/input_bg"
+                android:drawableEnd="@drawable/baseline_account_circle_24"
+                android:entries="@array/status_options"
+                android:fontFamily="@font/helvetica"
+                android:hint="@string/status_prompt"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:popupBackground="@color/white"
+                android:spinnerMode="dropdown"
+                android:theme="@style/SpinnerItemStyle"/>  <!-- Apply the item style -->/>
+
+            <!-- TextField pour DOTI ou Appogee -->
+            <EditText
+                android:id="@+id/editTextStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/input_bg"
+                android:fontFamily="@font/helvetica"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:padding="10dp"
+                android:visibility="gone" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/editTextText5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/input_bg"
+                    android:drawableLeft="@drawable/baseline_password_24"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/app_color"
+                    android:fontFamily="@font/helvetica"
+                    android:hint="Mot de passe"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    android:padding="10dp" />
+                <ImageButton
+                    android:id="@+id/togglePasswordVisibility1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:onClick="togglePasswordVisibility"
+                    android:src="@drawable/baseline_visibility_off_24"
+                    android:layout_gravity="end|center_vertical"
+                    android:padding="10dp"
+                    android:layout_marginBottom="-6dp"
+                    app:tint="@color/app_color"
+                    />
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <EditText
+                    android:id="@+id/editTextText6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/input_bg"
+                    android:drawableLeft="@drawable/baseline_password_24"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="@color/app_color"
+                    android:fontFamily="@font/helvetica"
+                    android:hint="Confirmer le mot de passe"
+                    android:inputType="textPassword"
+                    android:minHeight="48dp"
+                    android:padding="10dp" />
+
+
+                <ImageButton
+                    android:id="@+id/togglePasswordVisibility2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:onClick="togglePasswordVisibility"
+                    android:src="@drawable/baseline_visibility_off_24"
+                    android:layout_gravity="end|center_vertical"
+                    android:padding="10dp"
+                    app:tint="@color/app_color"
+                    android:layout_marginBottom="-6dp"/>
+            </FrameLayout>
+
+
+            <!-- Submit Button -->
+            <Button
+                android:id="@+id/button2"
+                android:backgroundTint="@color/button_color"
+                android:text="S'inscrire"
+                android:layout_width="190dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/roboto_regular"
+                android:minHeight="48dp"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:backgroundTint="@color/button_color"
+                tools:ignore="TouchTargetSizeCheck"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

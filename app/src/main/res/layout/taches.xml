@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+    <ImageButton
+        android:id="@+id/BackButton2"
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/baseline_arrow_back_24"
+        android:contentDescription="Retour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/app_color"
+        android:scaleType="fitCenter" />
+
+
+
+    <!-- Contenu principal (Formulaire et RecyclerView) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Taches"
+            android:textColor="@color/app_color"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            />
+
+
+        <!-- Zone de texte pour entrer le titre de la tâche, masquée par défaut -->
+        <EditText
+            android:id="@+id/editTextTaskTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Titre de la tâche"
+            android:inputType="text"
+            android:visibility="gone"
+            android:fontFamily="@font/ariel_ce" />
+
+        <!-- Bouton pour choisir un fichier, masqué par défaut -->
+        <Button
+            android:id="@+id/buttonChooseFile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choisir un fichier"
+            android:visibility="gone"
+            android:fontFamily="@font/roboto_regular" />
+
+        <!-- Affichage du fichier sélectionné, masqué par défaut -->
+        <TextView
+            android:id="@+id/textViewSelectedFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aucun fichier sélectionné"
+            android:textStyle="italic"
+            android:visibility="gone"
+            android:fontFamily="@font/ariel_ce" />
+
+        <!-- Bouton pour ajouter la tâche, masqué par défaut -->
+        <Button
+            android:id="@+id/buttonAddTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ajouter la tâche"
+            android:visibility="gone"
+            android:fontFamily="@font/roboto_regular" />
+
+        <!-- RecyclerView pour afficher les tâches -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewTasks"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <!-- Bouton pour afficher les champs de saisie, positionné en bas à droite -->
+    <ImageButton
+        android:id="@+id/buttonShowForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_format_list_bulleted_add_24"
+        android:contentDescription="Ajouter une tâche"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="30dp"
+        app:tint="@color/app_color" />
+</FrameLayout>

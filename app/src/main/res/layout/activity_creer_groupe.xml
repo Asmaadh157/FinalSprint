@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:background="#004D5A">
+
+    <!-- Conteneur principal pour le contenu -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Bouton pour retourner en arrière -->
+        <ImageButton
+            android:id="@+id/btnRetour"
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="16dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_arrow_back_24"
+            android:contentDescription="Retour"
+            app:tint="@color/white"
+            android:scaleType="fitCenter" />
+
+        <!-- Titre -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Créer un groupe"
+            android:textColor="#FFFFFF"
+            android:textSize="26sp"
+            android:fontFamily="@font/roboto_regular"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Champs de saisie -->
+        <EditText
+            android:id="@+id/etNomGroupe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Nom du groupe"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            android:textColorHint="#B0BEC5"
+            android:fontFamily="@font/helvetica"
+            android:background="@drawable/input_bg"
+            android:padding="10dp"
+            android:paddingStart="20dp" />
+
+        <EditText
+            android:id="@+id/etNomProjet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Nom du projet"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            android:textColorHint="#B0BEC5"
+            android:fontFamily="@font/helvetica"
+            android:background="@drawable/input_bg"
+            android:padding="10dp"
+            android:paddingStart="20dp" />
+
+        <EditText
+            android:id="@+id/etDateDebut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Date de début"
+            android:inputType="date"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            android:textColorHint="#B0BEC5"
+            android:fontFamily="@font/helvetica"
+            android:background="@drawable/input_bg"
+            android:padding="10dp"
+            android:paddingStart="20dp" />
+
+        <EditText
+            android:id="@+id/etDateFin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Date de fin"
+            android:inputType="date"
+            android:minHeight="48dp"
+            android:textColor="@color/black"
+            android:textColorHint="#B0BEC5"
+            android:fontFamily="@font/helvetica"
+            android:background="@drawable/input_bg"
+            android:padding="10dp"
+            android:paddingStart="20dp" />
+
+        <!-- Bouton pour ajouter un membre -->
+        <ImageButton
+            android:id="@+id/btnAjouterMembre"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="end"
+            android:src="@drawable/baseline_person_add_24"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:tint="@color/white"
+            android:scaleType="fitCenter" />
+
+        <!-- Liste des membres ajoutés -->
+        <TextView
+            android:id="@+id/tvListeMembres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Membres ajoutés :"
+            android:textSize="12sp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/roboto_regular"
+            />
+
+        <!-- Bouton pour créer le groupe -->
+        <Button
+            android:id="@+id/btnCreerGroupe"
+            android:layout_width="190dp"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Créer"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/roboto_regular"
+            android:backgroundTint="@color/button_color"
+            android:minHeight="48dp"
+            android:padding="5dp" />
+    </LinearLayout>
+</ScrollView>

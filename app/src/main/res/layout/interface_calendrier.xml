@@ -1,0 +1,236 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    >
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="40dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="16dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/baseline_arrow_back_24"
+        android:contentDescription="Retour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/app_color"
+        android:scaleType="fitCenter" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="Calendrie"
+        android:textColor="@color/app_color"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true" />
+
+
+
+
+
+    <!-- Légende des couleurs -->
+    <LinearLayout
+        android:id="@+id/legendLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:layout_marginTop="120dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="#FF0000"
+            android:padding="8dp"
+            android:text="Group 1"
+            android:textColor="#000000"
+            android:fontFamily="@font/roboto_regular"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="#00FF00"
+            android:padding="8dp"
+            android:text="Group 2"
+            android:textColor="#616161"
+            android:fontFamily="@font/ariel_ce"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Group 3"
+            android:textColor="#FFFFFF"
+            android:background="#0000FF"
+            android:padding="8dp"
+            android:layout_margin="4dp"
+            android:fontFamily="@font/ariel_ce"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/navigationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/legendLayout"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="38dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/prevMonthButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            app:tint="@color/button_color" />
+
+        <TextView
+            android:id="@+id/monthYearText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="January 2025"
+            android:textStyle="bold"
+            android:textColor="@color/app_color"
+            android:textSize="20sp"
+            android:fontFamily="@font/roboto_regular"/>
+
+        <ImageButton
+            android:id="@+id/nextMonthButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/baseline_arrow_forward_ios_24"
+            app:tint="@color/button_color" />
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/daysLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/legendLayout"
+        android:layout_marginTop="120dp"
+        android:columnCount="7"
+        android:rowCount="1">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:text="M"
+            android:textColor="@color/app_color"
+            android:background="#f5f3f0"
+            android:fontFamily="@font/roboto_regular"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:text="T"
+            android:textColor="@color/app_color"
+            android:background="#f5f3f0"
+            android:fontFamily="@font/roboto_regular"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:text="W"
+            android:textColor="@color/app_color"
+            android:background="#f5f3f0"
+            android:fontFamily="@font/roboto_regular"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:text="Th"
+            android:textColor="@color/app_color"
+            android:background="#f5f3f0"
+            android:fontFamily="@font/roboto_regular"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:text="F"
+            android:textColor="@color/app_color"
+            android:background="#f5f3f0"
+            android:fontFamily="@font/roboto_regular"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:text="S"
+            android:textColor="@color/app_color"
+            android:background="#f5f3f0"
+            android:fontFamily="@font/roboto_regular"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:text="Su"
+            android:textColor="@color/app_color"
+            android:background="#f5f3f0"
+            android:fontFamily="@font/roboto_regular"
+            android:textStyle="bold"/>
+    </GridLayout>
+
+    <!-- GridLayout pour le calendrier -->
+    <GridLayout
+        android:id="@+id/calendarGrid"
+        android:layout_below="@id/daysLayout"
+        android:layout_marginTop="8dp"
+        android:rowCount="6"
+        android:padding="14dp"
+        android:background="#f5f3f0"
+        android:fontFamily="@font/roboto_regular"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="7"
+        android:orientation="horizontal"
+        android:divider="@android:color/darker_gray"
+        android:showDividers="middle">
+
+        <!-- You can add the day TextViews programmatically, but here is an example of one day TextView with a border -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@color/app_color"
+            android:background="@drawable/day_border"
+            android:fontFamily="@font/roboto_regular"
+            android:textStyle="bold"/>
+    </GridLayout>
+
+</RelativeLayout>

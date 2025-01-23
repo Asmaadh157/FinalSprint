@@ -1,0 +1,75 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="FinalSprint"
+        android:roundIcon="@mipmap/ic_launcher1"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApp"
+        tools:targetApi="31">
+
+        <!-- Activité principale : Connexion -->
+        <activity
+            android:name=".Connexion"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Activité de l'écran d'inscription -->
+        <activity
+            android:name=".Inscrire"
+            android:exported="true">
+        </activity>
+
+        <!-- Activité Interface1 pour les étudiants -->
+
+        <!-- Activité Interface2 pour les professeurs -->
+        <activity
+            android:name=".Interface2"
+            android:exported="true">
+        </activity>
+
+        <!-- Activité de création de groupe -->
+        <activity
+            android:name=".CreerGroupeActivity"
+            android:exported="true">
+        </activity>
+
+        <!-- Activité pour Mes Groupes -->
+        <activity
+            android:name=".MesGroupesActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:theme="@style/Theme.MyApp"
+            android:name=".MenuGroupeActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".DetailDeGroupeActivity" />
+
+        <!-- Déclaration de l'activité AddTacheActivity -->
+        <activity
+            android:name=".Taches"
+            android:exported="true"/>
+        <activity
+            android:name=".EtatAvancementActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".Calendrier"
+            android:exported="true"/>
+
+
+
+    </application>
+
+</manifest>
